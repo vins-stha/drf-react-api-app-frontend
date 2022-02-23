@@ -15,11 +15,11 @@ export const Form = () => {
     let navigate = useNavigate();
 
     const handleButtonClick = async (action) => {
-        let isOwner =  await IsOwner(state.id, cookies.user_id);
-        console.log('isOWnder',isOwner)
+
         const url =  `http://localhost:8000/api/todo/`;
 
             if (action === 'update') {
+                let isOwner =  await IsOwner(state.id, cookies.user_id);
                 if (!isOwner)
                     return alert('Please login with appropriate credential to perform this action');
                 fetch(`${url}${state.id}`,{

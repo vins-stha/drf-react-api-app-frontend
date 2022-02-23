@@ -14,7 +14,7 @@ export const Articles = () => {
     let navigate = useNavigate();
 
     useEffect(() => {
-        console.log('token=', cookies.auth_token);
+
         fetch('http://localhost:8000/api/todo/')
             .then(res => res.json())
             .then(resp => {
@@ -47,7 +47,6 @@ export const Articles = () => {
            else {
                alert('Please login with appropriate credentials!');
            }
-
         }
     };
 
@@ -59,7 +58,7 @@ export const Articles = () => {
             <div className="article-card">
                 <div className="title">
 
-                    <h3 key={article.id}> {article.title} owner= {article.owner_id}</h3>
+                    <h3 key={article.id}> {article.title}</h3>
 
                 </div>
                 <div className="description">

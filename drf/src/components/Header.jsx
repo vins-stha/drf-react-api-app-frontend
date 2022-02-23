@@ -12,9 +12,8 @@ export const Header = (isLoggedIn) => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        console.log('loading..', isAuthorized, isLoggedIn)
 
-    }, [isAuthorized]);
+    }, [isAuthorized,isLoggedIn,cookies]);
 
     const handleLogout = () => {
         if (window.confirm("Are you sure ?")) {
@@ -37,7 +36,6 @@ export const Header = (isLoggedIn) => {
                     <a href="/" aria-label="Tasks">Tasks</a>
                     {!isAuthorized ?
                         (<>
-
                             <Link to="/login">Login</Link>
                             <Link to="/signup" onClick={e => {
                                 e.preventDefault();
